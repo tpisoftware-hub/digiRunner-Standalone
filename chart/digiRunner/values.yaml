@@ -1,0 +1,36 @@
+environment:
+  replicaCount: 1
+  dgr: 
+    container:
+      port: 8442
+    image: 
+      repo: null
+      tag: null
+    service:
+      type: LoadBalancer
+      port: 80
+  composer: 
+    container:
+      port: 8440
+    image: 
+      repo: null
+      tag: null
+  database:
+    container: 
+      port: 9090
+    image: 
+      repo: azul/zulu-openjdk-alpine
+      tag: 21
+    service:  
+      type: LoadBalancer
+      port: 9090
+  ubbagent:
+    image:
+      repo: gcr.io/cloud-marketplace-tools/metering/ubbagent
+      tag: latest
+  file:
+    sh: "https://raw.githubusercontent.com/butterpigpig001/digiRunner/refs/heads/main/resources/gcp_standalone/__call_update_ip_api.sh" 
+  persistentVolumeClaim:
+    storageClass: null
+    size: null
+  reportingSecret: null

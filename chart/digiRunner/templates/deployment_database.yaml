@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-database
+spec:
+  replicas: {{ .Values.environment.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-database
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-database
+    spec:
+      initContainers:
+        - name: init-environment
+          image: alpine:latest
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              echo "Hello world"
+
+          volumeMounts:
+            - name: dgr-storage
+              mountPath: /opt/dgr-v4/db
+              subPath: db
+      containers:
+        - name: {{ .Release.Name }}-database-container
+          ports:
+          - containerPort: {{ .Values.environment.database.container.port }}
+          image: {{ .Values.environment.database.image.repo }}:{{ .Values.environment.database.image.tag }}
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              apk add --no-cache curl
+              curl -k -L "https://repo1.maven.org/maven2/com/h2database/h2/2.3.232/h2-2.3.232.jar" -o h2-2.3.232.jar
+             
+              mkdir -p /opt/dgr-v4/db
+              chown -R 1000:1000 /opt/dgr-v4/db
+
+              # 啟動 H2 Server 並讓它在背景執行
+              java -cp h2*.jar org.h2.tools.Server -tcp -tcpPort {{ .Values.environment.database.container.port }} -tcpAllowOthers -baseDir /opt/dgr-v4/db -ifNotExists
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 200m
+              memory: 512Mi
+          volumeMounts:
+            - name: dgr-storage
+              mountPath: /opt/dgr-v4/db
+              subPath: db
+          startupProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  # 檢查 HTTP endpoint 是否正常
+                  echo "database start";
+
+                  if ! nc -z 127.0.0.1 {{ .Values.environment.database.container.port }} ; then
+                    echo "database -- HTTP 檢查失敗" ;
+                    exit 1
+                  fi
+
+                  echo "database end" ;
+
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 10
+      volumes:
+        - name: dgr-storage
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-pvc

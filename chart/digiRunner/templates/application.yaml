@@ -1,0 +1,30 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: "{{ .Release.Name }}"
+  namespace: "{{ .Release.Namespace }}"
+  labels:
+    app.kubernetes.io/name: "{{ .Release.Name }}"
+  annotations:
+    marketplace.cloud.google.com/deploy-info: '{"partner_id": "tpisoftware-digirunner-public", "product_id": "digirunner-standalone.endpoints.tpisoftware-digirunner-public.cloud.goog", "partner_name": "TPIsoftware"}'  
+spec:
+  descriptor:
+    type: digiRunner
+    version: "{{ .Values.environment.dgr.image.tag }}"
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: "{{ .Release.Name }}"
+  addOwnerRef: true
+  componentKinds:
+  - group: ''
+    kind: PersistentVolumeClaim
+  - group: ''
+    kind: Service
+  - group: apps
+    kind: Deployment
+  - group: networking.k8s.io
+    kind: Ingress
+  - group: ''
+    kind: secret
+  - group: ''
+    kind: ConfigMap

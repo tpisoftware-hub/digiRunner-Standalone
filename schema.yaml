@@ -1,0 +1,56 @@
+x-google-marketplace:
+  schemaVersion: v2
+
+  applicationApiVersion: v1beta1
+  # The published version is required and MUST match the tag
+  # of the deployer image
+  publishedVersion: "$TAG"
+  publishedVersionMetadata:
+    releaseNote: >-
+      A first release.
+  # The images property will be filled in during part 2
+  images:
+    digirunner:
+      properties:
+        environment.dgr.image.repo:
+          type: REPO_WITH_REGISTRY
+        environment.dgr.image.tag:
+          type: TAG
+    composer:
+      properties:
+        environment.composer.image.repo:
+          type: REPO_WITH_REGISTRY
+        environment.composer.image.tag:
+          type: TAG
+
+properties:
+  name:
+    type: string
+    x-google-marketplace:
+      type: NAME
+  namespace:
+    type: string
+    x-google-marketplace:
+      type: NAMESPACE
+  environment.persistentVolumeClaim.storageClass:
+    type: string
+    title: StorageClass
+    description: You can choose an existing StorageClass or create a new one.
+    x-google-marketplace:
+      type: STORAGE_CLASS
+      storageClass:
+        type: SSD
+  environment.persistentVolumeClaim.size:
+    type: string
+    title: Storage size for digiRunner.
+    default: "100Mi"
+    description: The storage size digiRunner persistent volume
+    pattern: '^[1-9][0-9]*(\.[0-9]+)?[TGM]i?$'
+  environment.reportingSecret:
+    type: string
+    x-google-marketplace:
+      type: REPORTING_SECRET
+
+required:
+- name
+- namespace
