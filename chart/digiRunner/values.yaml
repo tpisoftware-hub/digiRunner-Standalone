@@ -29,7 +29,7 @@ environment:
       repo: gcr.io/cloud-marketplace-tools/metering/ubbagent
       tag: latest
   file:
-    sh: "https://raw.githubusercontent.com/butterpigpig001/digiRunner/refs/heads/main/resources/gcp_standalone/__call_update_ip_api.sh" 
+    sh: "https://raw.githubusercontent.com/tpisoftware-hub/digiRunner-Standalone/refs/heads/main/resources/gcp_standalone/__call_update_ip_api.sh" 
   persistentVolumeClaim:
     storageClass: null
     size: null

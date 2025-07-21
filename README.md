@@ -27,7 +27,7 @@ you must configure Google Cloud firewall rules.
 
 Get up and running with a few clicks! To install this digiRunner app to a Google
 Kubernetes Engine cluster using Google Cloud Marketplace, follow the
-[on-screen instructions](https://console.cloud.google.com/marketplace/details/google/digirunner-standalone).
+[on-screen instructions](https://console.cloud.google.com/marketplace/product/tpisoftware-digirunner-public/digirunner-standalone).
 
 ### Log in to digiRunner
 
@@ -54,7 +54,7 @@ After logging in, the system screen is as follows.
 You can use [Google Cloud Shell](https://cloud.google.com/shell/) or a local
 workstation to complete these steps.
 
-[![Open in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/butterpigpig001/digiRunner&cloudshell_open_in_editor=README.md)
+[![Open in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/tpisoftware-hub/digiRunner-Standalone&cloudshell_open_in_editor=README.md)
 
 ### Prerequisites
 
@@ -102,7 +102,7 @@ gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE"
 Clone this repo and its associated tools repo:
 
 ```shell
-git clone --recursive https://github.com/butterpigpig001/digiRunner.git
+git clone --recursive https://github.com/tpisoftware-hub/digiRunner-Standalone.git
 ```
 
 #### Install the Application resource definition
@@ -129,7 +129,7 @@ community. The source code can be found on
 Navigate to the `digiRunner` directory:
 
 ```shell
-cd digiRunner
+cd digiRunner-Standalone
 ```
 
 #### Configure the app with environment variables
