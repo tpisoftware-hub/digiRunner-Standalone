@@ -31,6 +31,6 @@ environment:
   file:
     sh: "https://raw.githubusercontent.com/tpisoftware-hub/digiRunner-Standalone/refs/heads/main/resources/gcp_standalone/__call_update_ip_api.sh" 
   persistentVolumeClaim:
-    storageClass: null
-    size: null
+    storageClass: "standard-rwo"
+    size: "100Mi"
   reportingSecret: null

@@ -155,19 +155,6 @@ export APP_INSTANCE_NAME=digirunner-1
 export NAMESPACE=default
 ```
 
-For the persistent disk provisioning of the digiRunner application , you will need to:
-
- * Set the StorageClass name. Check your available options using the command below:
-   * ```kubectl get storageclass```
-   * Or check how to create a new StorageClass in [Kubernetes Documentation](https://kubernetes.io/docs/concepts/storage/storage-classes/#the-storageclass-resource)
-
- * Set the persistent disk's size. The default disk size is "100Mi".
-
-```shell
-export DGR_STORAGE_CLASS="standard-rwo" # provide your StorageClass name if not "standard"
-export DGR_PERSISTENT_DISK_SIZE="100Mi"
-```
-
 Configure the container images:
 
 ```shell
@@ -205,8 +192,6 @@ helm template $APP_INSTANCE_NAME chart/digiRunner \
   --set "environment.dgr.image.tag=$IMAGE_TAG" \
   --set "environment.composer.image.repo=$IMAGE_COMPOSER_REPO" \
   --set "environment.composer.image.tag=$IMAGE_TAG" \
-  --set "environment.persistentVolumeClaim.storageClass=$DGR_STORAGE_CLASS" \
-  --set "environment.persistentVolumeClaim.size=$DGR_PERSISTENT_DISK_SIZE" \
   --set "environment.reportingSecret=$REPORTING_SECRET" \
   > ${APP_INSTANCE_NAME}_manifest.yaml
 ```
