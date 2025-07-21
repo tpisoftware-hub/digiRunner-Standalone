@@ -29,6 +29,18 @@ Get up and running with a few clicks! To install this digiRunner app to a Google
 Kubernetes Engine cluster using Google Cloud Marketplace, follow the
 [on-screen instructions](https://console.cloud.google.com/marketplace/product/tpisoftware-digirunner-public/digirunner-standalone).
 
+### Update Cluster Label
+
+After selecting the newly created cluster-1, click "Labels"
+
+![021](resources/021.png)
+
+Label data as follows
+Key：goog-partner-solution
+Value：isol_plb32_0014m00001xkhxaqae_dgxgkbnjofxcgupghyf6cw77vba7qhvh
+
+![022](resources/022.png)
+
 ### Log in to digiRunner
 
 Click on Ingress URL.
@@ -172,8 +184,6 @@ Apply the service account key:
 
 ```shell
 export REPORTING_SECRET=$(kubectl apply -f service-account-key.yaml | grep '^secret/' | awk '{print $1}' | cut -d'/' -f2)
-
-echo $REPORTING_SECRET
 ```
 
 The image above is referenced by
