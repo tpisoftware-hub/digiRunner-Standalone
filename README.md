@@ -36,8 +36,11 @@ After selecting the newly created cluster-1, click "Labels"
 ![021](resources/021.png)
 
 Label data as follows
+
+``` textile
 Key：goog-partner-solution
 Value：isol_plb32_0014m00001xkhxaqae_dgxgkbnjofxcgupghyf6cw77vba7qhvh
+```
 
 ![022](resources/022.png)
 
