@@ -24,6 +24,12 @@ spec:
           args:
             - |
               echo "Hello world"
+              if [ ! -d /opt/dgr-v4/db ]
+              then
+                mkdir -p /opt/dgr-v4/db
+              fi
+              chown 1000:1000 /opt/dgr-v4/db
+
               # while ! nc -z {{ .Release.Name }}-database-service {{ .Values.environment.database.container.port }} ; do
               #   echo "waiting for database service"
               #   sleep 2
@@ -71,7 +77,7 @@ spec:
                 -Dspring.sql.init.mode=$spring_sql_init_mode \
                 -Des.apilog.allow.write.elastic=false \
                 -Dserver.ssl.enabled=false \
-                -Dspring.datasource.url='jdbc:h2:./opt/dgr-v4/db/dgrdb;NON_KEYWORDS=VALUE;Mode=MySQL' \
+                -Dspring.datasource.url='jdbc:h2:/opt/dgr-v4/db/dgrdb;NON_KEYWORDS=VALUE;Mode=MySQL' \
                 org.springframework.boot.loader.launch.PropertiesLauncher
           resources:
             requests:
@@ -114,8 +120,6 @@ spec:
                     echo "HTTP 檢查失敗"
                     exit 1
                   fi
-
-                  chown 1000:1000 /opt/dgr-v4/db
 
                   # 檢查 init.txt 檔案是否存在，若存在才執行下載與執行
                   if [ ! -f /opt/dgr-v4/db/init.txt ]; then \
