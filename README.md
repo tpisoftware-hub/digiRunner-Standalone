@@ -282,19 +282,12 @@ echo http://$EXTERNAL_IP/dgrv4/login
 7.Click "Advanced host and path rule (URL redirect, URL rewrite)", then click Update.
 ![015](resources/015.png)
 
-8.Please wait another 15 to 20 minutes, then use a browser to connect to the DNS Hostnames of the TLS certificate.
-
-In Network Services-> Load balancing -> Edit classic Application Load Balancer, you can see "Create a new certificate", as shown in the figure below.
-
-![018](resources/018.png)
-
-After uploading the Certificate, you can see the DNS Hostnames.
-![019](resources/019.png)
+8.Please wait another 15 to 20 minutes, then use a browser to connect to the DNS Hostname of the TLS certificate.
 
 digiRunner URL example:
 
 ``` textile
-https://{gcp.digirunner.click}/dgrv4/login
+https://{DNS Hostname}/dgrv4/login
 ```
 
 Login information is as follows.
