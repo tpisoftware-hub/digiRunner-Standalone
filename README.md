@@ -103,7 +103,7 @@ export MACHINE=n2d-standard-2
 ```
 
 ```shell
-gcloud container clusters create "$CLUSTER" --zone "$ZONE" --num-nodes=1 --machine-type="$MACHINE"   --labels=goog-partner-solution=isol_plb32_0014m00001xkhxaqae_dgxgkbnjofxcgupghyf6cw77vba7qhvh
+gcloud container clusters create "$CLUSTER" --zone "$ZONE" --machine-type="$MACHINE"   --labels=goog-partner-solution=isol_plb32_0014m00001xkhxaqae_dgxgkbnjofxcgupghyf6cw77vba7qhvh
 ```
 
 #### Configure `kubectl` to connect to the cluster
