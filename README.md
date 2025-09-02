@@ -103,7 +103,7 @@ export MACHINE=n2d-standard-2
 ```
 
 ```shell
-gcloud container clusters create "$CLUSTER" --zone "$ZONE" --machine-type="$MACHINE"   --labels=goog-partner-solution=isol_plb32_0014m00001xkhxaqae_dgxgkbnjofxcgupghyf6cw77vba7qhvh
+gcloud container clusters create "$CLUSTER" --zone "$ZONE" --num-nodes=1 --machine-type="$MACHINE"   --labels=goog-partner-solution=isol_plb32_0014m00001xkhxaqae_dgxgkbnjofxcgupghyf6cw77vba7qhvh
 ```
 
 #### Configure `kubectl` to connect to the cluster
@@ -264,7 +264,7 @@ echo http://$EXTERNAL_IP/dgrv4/login
 1.Enter Load balancing.
 ![009](resources/009.png)
 
-2.Search for digirunner-standalone, then click Edit.
+2.Search for digirunner, then click Edit.
 ![010](resources/010.png)
 
 3.Delete "Port: 80 item".
