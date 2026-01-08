@@ -302,6 +302,15 @@ User password：manager123
 9.After logging in, the system screen is as follows.
 ![017](resources/017.png)
 
+# Configure SMTP
+
+1. Click System Configs -> Setting in the system.
+![023](resources/023.png)
+
+2. Search for the "SMTP" keyword (as shown in the image below) and modify it according to your own configuration.
+
+![024](resources/024.png)
+
 # Deleting your digiRunner installation
 
 > Warning: The following command deletes digiRunner from your cluster.
