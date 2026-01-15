@@ -302,14 +302,11 @@ User password：manager123
 9.After logging in, the system screen is as follows.
 ![017](resources/017.png)
 
-# Configure SMTP
+# SMTP Configuration
 
-1. Click System Configs -> Setting in the system.
-![023](resources/023.png)
+To ensure you receive essential system notifications—such as account activation alerts, password reset emails, and system warnings—you must configure your SMTP server settings.
 
-2. Search for the "SMTP" keyword (as shown in the image below) and modify it according to your own configuration.
-
-![024](resources/024.png)
+[👉 Read SMTP Configuration Guide](https://docs.tpi.dev/get-started/installation/smtp-configuration)
 
 # Deleting your digiRunner installation
 
