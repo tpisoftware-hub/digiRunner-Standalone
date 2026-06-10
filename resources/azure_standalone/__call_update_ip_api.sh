@@ -49,7 +49,7 @@ function call_update_IP_api_with_token() {
         -H 'accept: application/json, text/plain, */*' \
         -H "authorization: Bearer $access_token" \
         -H 'content-type: application/json' \
-        --data '{"ReqHeader":{"txSN":"","txDate":"","txID":"","cID":"","locale":""},"ReqBody":{"id":"TSMP_EDITION","oldVal":"Cn88-nNO8-xx8u-un88-nVoF-Fr48-80rc-L5rF-xN#8-e1=x-6#xo-=d4#-2\u0021=n-\u0021#2\u0021-=\u0021\u0021\u0021-\u0021\u0021\u0021","newVal":"Ce88-nRPl-exx8-GMNe-88ni-H4ed-\u0021Box-x\u0021Cu-nx\u0021o-Fn\u0021V-xU\u0021r-8\u00214e-\u0021\u00218\u0021-92\u0021V-8\u0021N2-\u00214\u0021\u0021-\u0021\u0021\u0021\u0021-","memo":"","encrptionType":"NONE"}}')
+        --data '{"ReqHeader":{"txSN":"","txDate":"","txID":"","cID":"","locale":""},"ReqBody":{"id":"TSMP_EDITION","oldVal":"Cn88-nNTO-8xx8-uCuF-88nV-9occ-\u0021S4x-8\u0021\u0021r-nF\u0021r-Fn\u0021#-xL\u0021=-8\u0021#e-\u0021=8\u0021-#x\u0021=-L\u0021#c-\u0021=\u0021\u0021-\u0021\u0021\u0021\u0021-","newVal":"Ce88-nRPl-exx8-GMNe-88ni-H4ed-\u0021Box-x\u0021Cu-nx\u0021o-Fn\u0021V-xU\u0021r-8\u00214e-\u0021\u00218\u0021-92\u0021V-8\u0021N2-\u00214\u0021\u0021-\u0021\u0021\u0021\u0021-","memo":"","encrptionType":"NONE"}}')
 
     # 輸出 API 響應...2
     echo "$api_response2"
