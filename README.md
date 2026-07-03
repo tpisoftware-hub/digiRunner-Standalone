@@ -161,7 +161,7 @@ export NAMESPACE=default
 Configure the container images:
 
 ```shell
-export IMAGE_TAG=4.7.1-1
+export IMAGE_TAG=4.7.26-2
 export IMAGE_DGR_REPO="gcr.io/tpisoftware-digirunner-public/digirunner/digirunner"
 export IMAGE_COMPOSER_REPO="gcr.io/tpisoftware-digirunner-public/digirunner/composer"
 ```
